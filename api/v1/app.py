@@ -19,9 +19,7 @@ def teardown_db(exception):
     """ closes the storage on teardown"""
     storage.close()
 
-cors = CORS(app, resources={r'/*': {'origins': host}})
-
-
+cors = CORS(app, resources={r'/api/v1/*': {'origins': "*"}})
 @app.errorhandler(404)
 def not_found(error):
     """ returns a 404 error in json format"""
